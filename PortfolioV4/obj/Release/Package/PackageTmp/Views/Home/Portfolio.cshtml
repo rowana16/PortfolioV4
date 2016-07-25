@@ -1,0 +1,255 @@
+﻿
+@{
+    ViewBag.Title = "Portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/portfolio.css" rel="stylesheet" />
+
+<section id="portfolio">
+    <div class="row text-center">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="title-one">Portfolio</h2>
+            <p>My Rapidly Expanding Body of Work.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 myImages" >
+            <a href="https://rowana16.github.io/MicrodataGenerator/index.html"><img src="~/images/portfolio/MicrodataScreenShot.jpg" class="myImages" /></a>
+        </div>
+        <div class="col-sm-8">
+           <h2>MicrodataGenerator.com</h2>  <p>SEO is something that should be designed in not added after.  I've developed a tool to create the JSON-LD that allow Google and other search engines to parse and develop a richer browsing experience for users. Particularly good at focusing on small businesses and individuals without a SEO budget, the site already had some pretty good traffic.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 myImages">
+            <a href="@Url.Action("Week1","home")"><img src="~/images/portfolio/javaScriptExercisesWk1.jpg" class="myImages" /></a>
+        </div>
+        <div class="col-sm-8">
+            <h2>Classic JavaScript Challenges</h2> <p>Character, Text and number comparison, function calls and modulus all displayed using some great Bootstrap formatting and tools. </p>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-sm-4 myImages">
+            <a href="https://rowana16.github.io/shoppingList/"><img src="~/images/portfolio/shoppingListScreenShot.jpg" class="myImages"/></a>
+        </div>
+        <div class="col-sm-8">
+            <h2>Shopping List Application</h2><p>This is another example of my jQuery and JavaScript Skills. I had actually created the initial wireframe in Bootstrap but at the suggestion of my mentor created the page and the responsive features manually at first. This is a great idea as I remain dedicated to learning the fundamentals that the frameworks like Bootstrap allow you to short cut.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 myImages">
+            <a href="https://rowana16.github.io/jquery-streetfighter/main.html"><img src="~/images/portfolio/streetFighterScreenShot.jpg" class="myImages" /></a>
+        </div>
+        <div class="col-sm-8">
+            <h2>Street Fighter Demo</h2> <p>A project that is a blast from the past. Yes I can do animation! Yes I can do sound! And just for fun, don’t forget to hit the ‘x’ key!</p>
+        </div>
+    </div>   
+    <div class="row">
+        <div class="col-sm-4 myImages">           
+            <a href="https://rowana16.github.io/hot-or-cold-starter/index.html"><img src="~/images/portfolio/hotOrColdScreenShot.jpg" class="myImages" /></a>            
+        </div>
+        <div class="col-sm-8">
+            <h2>Hot or Cold Guessing Game</h2><p>Really took this simple game to the next level. Not happy with the simple ‘warm’, ‘really warm’ feedbacks, I added color coded information that allows you to see what your previous guesses were and how close they were. Another example of applying jQuery and JavaScript functionality.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 myImages">
+            <a href="https://rowana16.github.io/quizGame/"><img src="~/images/portfolio/quizGameScreenShot.jpg" class="myImages" /></a>
+        </div>
+        <div class="col-sm-8">
+            <h2>Quiz Game App</h2> <p>I’ve learned so many great tools in the past few months. This one highlights my jQuery and JavaScript responsive design skills. In addition, of course, of course to my HTML and CSS skills. I’ve also applied some personally created responsive design abilities.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 myImages">
+            <a href="https://rowana16.github.io/youTubeApi/"><img src="~/images/portfolio/youTubeApiScreenShot.jpg" class="myImages" /></a>
+        </div>
+        <div class="col-sm-8">
+            <h2>AJAX API Interface with YouTube</h2> <p>My initial take at creating a smart page able to get information from an outside source. This site is a barebones illustration of using jQuery’s AJAX interface to pull data from a secure API, handle and format that information in a seamless application. Obviously Eyecandy can be applied to make this or any other site display intelligent information.</p>
+        </div>
+    </div>
+      
+    
+
+<!--
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2 class="title-one">Portfolio</h2>
+                <p>My Rapidly Expanding Body of Work.</p>
+            </div>
+        </div>
+        <!--
+        <ul class="portfolio-filter text-center">
+            <li><a class="btn btn-default active" href="#" data-filter="*">All</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".html">Html</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".wordpress">Wordpress</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".joomla">Joomla</a></li>
+            <li><a class="btn btn-default" href="#" data-filter=".megento">Megento</a></li>
+        </ul><!--/#portfolio-filter-->
+     
+        
+ <!--       
+        <div class="portfolio-items">
+            <div class="col-sm-3 col-xs-12 portfolio-item html">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/hotOrColdScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/hotOrColdScreenShot.JPG" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item jooma">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/MicrodataScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/MicrodataScreenShot.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item wordpress">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/quizGameScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/quizGameScreenShot.JPG" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item megento">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/shoppingListScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/shoppingListScreenShot.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item html">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/streetFighterScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/streetFighterScreenShot.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item wordpress">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/youTubeApiScreenShot.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/youTubeApiScreenShot.JPG" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item html">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/7.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item joomla">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/8.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+<!--
+            <div class="col-sm-3 col-xs-12 portfolio-item html">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/9.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item wordpress">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/10.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item joomla">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/11.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item3.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-12 portfolio-item megento">
+                <div class="view efffect">
+                    <div class="portfolio-image">
+                        <img src="~/images/portfolio/12.jpg" alt="">
+                    </div>
+                    <div class="mask text-center">
+                        <h3>Novel</h3>
+                        <h4>Lorem ipsum dolor sit amet consectetur</h4>
+                        <a href="#"><i class="fa fa-link"></i></a>
+                        <a href="~/images/portfolio/big-item4.jpg" data-gallery="prettyPhoto"><i class="fa fa-search-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     -->
+    </div>
+</section> <!--/#portfolio-->

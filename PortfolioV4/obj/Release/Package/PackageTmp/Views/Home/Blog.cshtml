@@ -1,0 +1,218 @@
+﻿@model IEnumerable<CFPortfolio.Models.codeFirst.BlogPost>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<link href="~/css/blog.css" rel="stylesheet" />
+
+<section id="blog" style="background-image: url(images/blog/snailSlimline.jpg)">
+    <div class="container">
+        <div class="row text-center clearfix">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2 class="title-one">Blog</h2>
+                <p class="blog-heading">The world turns softly.  The sun greets us each time.  On our relentless pursuit.  Of our next lap.  </p>
+                <h4> Record Your Latest Millimoment </h4>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-3" style="background-image: url('../../images/blog/snailSlimline.jpg'); background-size: cover; height:700px; width: 290px;">
+               
+            </div>
+            <div class="col-sm-6" style="text-indent: 10px;">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <textarea class="form-control" rows="2" id="title"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="slug">Slug:</label>
+                    <textarea class="form-control" rows="1" id="slug"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="body">Body:</label>
+                    <textarea class="form-control textarea" rows="25" id="body" ></textarea>
+                </div>
+                <button type="button" class="btn btn-danger btn-lg" id="myBtn">Submit</button>
+            </div>
+            <div class="col-sm-3" style="background-image: url('../../images/blog/treeRings.jpg'); background-size: cover; height:700px; width: 290px;">
+                <h4> Previous Posts</h4>
+                @foreach(var item in Model)
+                  {
+                    <ul>
+                        <li>@Html.DisplayFor(modelItem => item.Title)</li>
+                    </ul>
+                    }
+            </div>
+        </div>
+    </div>
+</section> <!--/#blog-->
+
+
+<!-- Original Template Content
+<div class="row">
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/1.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-detail">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-detail" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <img src="~/images/blog/3.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/2.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-two">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-two" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <img src="~/images/blog/2.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/3.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-three">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-three" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <img src="~/images/blog/3.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/3.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-four">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-four" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <img src="~/images/blog/3.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/2.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-six">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-six" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <img src="~/images/blog/2.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-4">
+    <div class="single-blog">
+        <img src="~/images/blog/1.jpg" alt="" />
+        <h2>Lorem ipsum dolor sit amet</h2>
+        <ul class="post-meta">
+            <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> John</li>
+            <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> Apr 15 2014</li>
+        </ul>
+        <div class="blog-content">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#blog-seven">Read More</a>
+    </div>
+    <div class="modal fade" id="blog-seven" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <img src="~/images/blog/1.jpg" alt="" />
+                    <h2>Lorem ipsum dolor sit amet</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    -->
