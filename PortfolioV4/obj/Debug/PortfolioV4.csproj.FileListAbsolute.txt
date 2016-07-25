@@ -80,3 +80,5 @@ C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\Microsof
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\obj\Debug\PortfolioV4.csprojResolveAssemblyReference.cache
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\obj\Debug\PortfolioV4.dll
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\obj\Debug\PortfolioV4.pdb
+C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\obj\Debug\PortfolioV4.Migrations.Initial.resources
+C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\obj\Debug\PortfolioV4.csproj.GenerateResource.Cache

@@ -7,7 +7,7 @@
     <meta name="keywords" content="Creative, Onepage, Parallax, HTML5, Bootstrap, Popular, custom, personal, portfolio" />
     <meta name="author" content="">
     <title>Web Developer - Aaron Rowan</title>
-    <script type="text/javascript" src="~/js/jquery.js"></script>
+    
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/prettyPhoto.css" rel="stylesheet">
     <link href="~/css/font-awesome.min.css" rel="stylesheet">
@@ -77,7 +77,10 @@
         </div>
     </footer> <!--/#footer-->
 
-    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript" src="~/js/jquery.js"></script>
     <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/js/smoothscroll.js"></script>
     <script type="text/javascript" src="~/js/jquery.isotope.min.js"></script>
