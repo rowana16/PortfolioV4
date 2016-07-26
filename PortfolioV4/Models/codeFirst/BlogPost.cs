@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PortfolioV4.Models.codeFirst
 {
@@ -20,6 +21,7 @@ namespace PortfolioV4.Models.codeFirst
         public string Title { get; set; }
         public string Slug { get; set; }
         [Required()]
+        [AllowHtml]
         public string Body { get; set; }
         public string MediaURL { get; set; }
         public bool Published { get; set; }

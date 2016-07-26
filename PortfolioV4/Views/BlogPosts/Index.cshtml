@@ -15,18 +15,18 @@
     <button type="button" class="btn btn-warning buttonColor">@Html.ActionLink("Create New", "Create",null,new {@style="color: white"})</button>
     
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Last Edit
+<table class="table" style="text-align: center;">
+    <tr style="text-align: center;">
+        <th style="text-align: center;">
+            Latest Edit
         </th>       
-        <th>
+        <th style="text-align: center;">
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Slug)
-        </th>        
-        <th>
+        </th>*@        
+        <th style="text-align: center;">
             @Html.DisplayNameFor(model => model.Published)
         </th>
         <th></th>
@@ -35,8 +35,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Created)
-            
+            @if (item.Updated == null)
+            {
+                item.Updated = item.Created;
+            }
+                       
+            @Html.Label(@item.Updated.Value.ToString("M - dd - yy"))
+
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Updated)
@@ -44,9 +49,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Slug)
-        </td>
+        </td>*@
         
         <td>
             @Html.DisplayFor(modelItem => item.Published)
