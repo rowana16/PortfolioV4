@@ -1,9 +1,11 @@
 ﻿@model PortfolioV4.Models.SendCodeViewModel
 @{
-    ViewBag.Title = "Send";
+    ViewBag.Title = "Sending Confirmation Code";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="jumbotron loginComputer">
+    <h1 class="jumboText">@ViewBag.Title.</h1>
+</div>
 
 @using (Html.BeginForm("SendCode", "Account", new { ReturnUrl = Model.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
     @Html.AntiForgeryToken()

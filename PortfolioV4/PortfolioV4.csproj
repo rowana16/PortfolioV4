@@ -239,6 +239,7 @@
     <Content Include="images\about-us\PMP-certification-jobs.png" />
     <Content Include="images\about-us\rpi-seal.jpg" />
     <Content Include="images\about-us\Suny.JPG" />
+    <Content Include="images\blog\snailShell.jpg" />
     <Content Include="images\blog\snailSlimline.jpg" />
     <Content Include="images\blog\treeRings.jpg" />
     <Content Include="images\home-pattern.png" />
@@ -247,6 +248,8 @@
     <Content Include="images\ico\apple-touch-icon-57-precomposed.png" />
     <Content Include="images\ico\apple-touch-icon-72-precomposed.png" />
     <Content Include="images\ico\favicon.png" />
+    <Content Include="images\LogIn\Create.jpg" />
+    <Content Include="images\LogIn\LogIn.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\Novelis.png" />
     <Content Include="images\pattern.png" />
