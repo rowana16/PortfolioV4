@@ -68,6 +68,7 @@ namespace PortfolioV4.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            //returnUrl = "/blogposts";
             if (!ModelState.IsValid)
             {
                 return View(model);

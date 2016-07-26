@@ -214,6 +214,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\HtmlAddress.cs" />
+    <Compile Include="Utilities\Path.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -313,7 +315,6 @@
     <Content Include="js\jquery.prettyPhoto.js" />
     <Content Include="js\jquery.tinymce.min.js" />
     <Content Include="js\main.js" />
-    <Content Include="js\navBar.js" />
     <Content Include="js\prism.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\smoothscroll.js" />
