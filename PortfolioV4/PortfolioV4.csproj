@@ -313,6 +313,7 @@
     <Content Include="js\jquery.prettyPhoto.js" />
     <Content Include="js\jquery.tinymce.min.js" />
     <Content Include="js\main.js" />
+    <Content Include="js\navBar.js" />
     <Content Include="js\prism.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\smoothscroll.js" />
