@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PortfolioV4.Models;
 using PortfolioV4.Models.codeFirst;
+using System.IO;
 
 namespace PortfolioV4.Controllers
 {
@@ -20,7 +21,7 @@ namespace PortfolioV4.Controllers
         {
             return View(db.Posts.ToList());
         }
-
+//=============================================== Details ============================================================
         // GET: BlogPosts/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +37,22 @@ namespace PortfolioV4.Controllers
             return View(blogPost);
         }
 
+        public ActionResult Details(string Slug)
+        {
+            if (String.IsNullOrWhiteSpace(Slug))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == Slug);
+            if (blogPost == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(blogPost);
+        }
+//=============================================== Start Create ============================================================
         // GET: BlogPosts/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
@@ -48,11 +65,45 @@ namespace PortfolioV4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]       
-        public ActionResult Create([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost)
+        public ActionResult Create([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
+            if (image != null && image.ContentLength > 0)
+            {
+                //check the file name to make sure its an image
+                var ext = Path.GetExtension(image.FileName).ToLower();
+                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".bmp") { ModelState.AddModelError("image", "Invalid Format."); }
+            }
+            
             if (ModelState.IsValid)
             {
                 blogPost.Created = DateTime.Now;
+                if (image != null)
+                {
+                    //relative server path
+                    var filePath = "/Uploads/";
+                    //path on physical drive on server
+                    var absPath = Server.MapPath("~" + filePath);
+                    //Medial url for relative path
+                    blogPost.MediaURL = filePath + image.FileName;
+                    //Save Image to Local Variable
+                    image.SaveAs(Path.Combine(absPath, image.FileName));
+                }
+
+                var Slug = StringUtilities.URLFriendly(blogPost.Title);
+                if (String.IsNullOrWhiteSpace(Slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid Title.");
+                    return View(blogPost);
+                }
+                
+                if (db.Posts.Any(p=>p.Slug == Slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique.");
+                    return View(blogPost);
+                }
+
+                blogPost.Slug = Slug;
+
                 db.Posts.Add(blogPost);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -61,6 +112,8 @@ namespace PortfolioV4.Controllers
             return View(blogPost);
         }
 
+        
+//=============================================== Start Edit ============================================================
         // GET: BlogPosts/Edit/5
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
@@ -83,11 +136,29 @@ namespace PortfolioV4.Controllers
     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost)
+        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
+            if (image != null && image.ContentLength > 0)
+            {
+                //check the file name to make sure its an image
+                var ext = Path.GetExtension(image.FileName).ToLower();
+                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".bmp") { ModelState.AddModelError("image", "Invalid Format."); }
+            }
+
             if (ModelState.IsValid)
             {
                 blogPost.Updated = DateTime.Now;
+                if (image != null)
+                {
+                    //relative server path
+                    var filePath = "/Uploads/";
+                    //path on physical drive on server
+                    var absPath = Server.MapPath("~" + filePath);
+                    //Medial url for relative path
+                    blogPost.MediaURL = filePath + image.FileName;
+                    //Save Image to Local Variable
+                    image.SaveAs(Path.Combine(absPath, image.FileName));
+                }
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -95,6 +166,8 @@ namespace PortfolioV4.Controllers
             return View(blogPost);
         }
 
+       
+        //=============================================== Start Delete ============================================================
         // GET: BlogPosts/Delete/5
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
