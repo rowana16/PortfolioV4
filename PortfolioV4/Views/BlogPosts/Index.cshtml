@@ -10,6 +10,10 @@
     <h1 class="jumboText" >Blogs Of History</h1>
 </div>
 
+@*@if (Model.MediaURL != null)
+{
+    <img class="img-responsive" src="@Model.MediaURL" alt="BlogPost" />
+}*@
 
 <p>
     <button type="button" class="btn btn-warning buttonColor">@Html.ActionLink("Create New", "Create",null,new {@style="color: white"})</button>
@@ -34,6 +38,9 @@
 
 @foreach (var item in Model) {
     <tr>
+
+         @*Create Gravatar
+            <img class="entry-avatar" height ="52" width = "52" src="http://www.gravatar.com/avatar/[biglongstring]" >  *@
         <td>
             @if (item.Updated == null)
             {

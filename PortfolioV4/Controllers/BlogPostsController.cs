@@ -71,7 +71,7 @@ namespace PortfolioV4.Controllers
             {
                 //check the file name to make sure its an image
                 var ext = Path.GetExtension(image.FileName).ToLower();
-                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".bmp") { ModelState.AddModelError("image", "Invalid Format."); }
+                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".jpeg" && ext != ".bmp") { ModelState.AddModelError("image", "Invalid Format."); }
             }
             
             if (ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace PortfolioV4.Controllers
                 blogPost.Created = DateTime.Now;
                 if (image != null)
                 {
-                    //relative server path
+                    //relative server path  // Ensure the folder gets published for the images to work.
                     var filePath = "/Uploads/";
                     //path on physical drive on server
                     var absPath = Server.MapPath("~" + filePath);
@@ -159,6 +159,22 @@ namespace PortfolioV4.Controllers
                     //Save Image to Local Variable
                     image.SaveAs(Path.Combine(absPath, image.FileName));
                 }
+
+                var Slug = StringUtilities.URLFriendly(blogPost.Title);
+                if (String.IsNullOrWhiteSpace(Slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid Title.");
+                    return View(blogPost);
+                }
+
+                if (db.Posts.Any(p => p.Slug == Slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique.");
+                    return View(blogPost);
+                }
+
+                blogPost.Slug = Slug;
+
                 db.Entry(blogPost).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
