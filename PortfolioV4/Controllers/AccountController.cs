@@ -90,6 +90,8 @@ namespace PortfolioV4.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+
+            return RedirectToAction("Index");
         }
 
         //

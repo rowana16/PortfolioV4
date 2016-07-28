@@ -9,6 +9,9 @@ using System.Web.Mvc;
 using PortfolioV4.Models;
 using PortfolioV4.Models.codeFirst;
 using System.IO;
+using PagedList;
+using PagedList.Mvc;
+
 
 namespace PortfolioV4.Controllers
 {
@@ -17,34 +20,40 @@ namespace PortfolioV4.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.Posts.ToList());
+            
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+
+            
+            return View(db.Posts.OrderBy(i=>i.Created).ToPagedList(pageNumber,pageSize));
         }
 //=============================================== Details ============================================================
         // GET: BlogPosts/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlogPost blogPost = db.Posts.Find(id);
-            if (blogPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blogPost);
-        }
+        //public ActionResult Details(int id)
+        //{
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
 
-        public ActionResult Details(string Slug)
+        //    BlogPost blogPost = db.Posts.Find(id);
+        //    if (blogPost == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(blogPost);
+        //}
+
+        public ActionResult Details(string Slug, int? id)
         {
             if (String.IsNullOrWhiteSpace(Slug))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == Slug);
+            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == Slug || p.Id == id);
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -52,7 +61,7 @@ namespace PortfolioV4.Controllers
 
             return View(blogPost);
         }
-//=============================================== Start Create ============================================================
+        //=============================================== Start Create ============================================================
         // GET: BlogPosts/Create
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
@@ -77,6 +86,7 @@ namespace PortfolioV4.Controllers
             if (ModelState.IsValid)
             {
                 blogPost.Created = DateTime.Now;
+                blogPost.Updated = DateTime.Now;
                 if (image != null)
                 {
                     //relative server path  // Ensure the folder gets published for the images to work.
@@ -136,7 +146,7 @@ namespace PortfolioV4.Controllers
     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Created,Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
+        public ActionResult Edit([Bind(Include = "Id,Created, Updated,Title,Slug,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
             if (image != null && image.ContentLength > 0)
             {
@@ -164,12 +174,6 @@ namespace PortfolioV4.Controllers
                 if (String.IsNullOrWhiteSpace(Slug))
                 {
                     ModelState.AddModelError("Title", "Invalid Title.");
-                    return View(blogPost);
-                }
-
-                if (db.Posts.Any(p => p.Slug == Slug))
-                {
-                    ModelState.AddModelError("Title", "The title must be unique.");
                     return View(blogPost);
                 }
 

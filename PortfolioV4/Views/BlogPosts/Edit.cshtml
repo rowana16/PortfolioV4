@@ -18,18 +18,13 @@
        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
+        @Html.HiddenFor(model => model.Id)  
+        @Html.HiddenFor(model => model.Created)             
+        
         <div class="form-group">
-            @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">               
-                 @Model.Created.ToString("M/dd/yyyy") 
-                
+            <div class="col-md-2" style="text-align:right">
+                <label>Last Update</label>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Updated, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @if (Model.Updated.HasValue)
                 {   @Model.Updated.Value.ToString("M/dd/yyyy") }
