@@ -21,15 +21,26 @@ namespace PortfolioV4.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index(int? page)
+        public ActionResult Index(string searchStr, int? page)
         {
-            
-            int pageSize = 3;
+            var result = db.Posts.Where(p => p.Body.Contains(searchStr))
+                    .Union(db.Posts.Where(p => p.Title.Contains(searchStr)))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Body.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.DisplayName.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.FirstName.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.LastName.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.UserName.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.Author.Email.Contains(searchStr))))
+                    .Union(db.Posts.Where(p => p.Comments.Any(c => c.UpdateReason.Contains(searchStr))));
+
+            int pageSize = 5;
             int pageNumber = (page ?? 1);
 
             
             return View(db.Posts.OrderByDescending(i=>i.Created).ToPagedList(pageNumber,pageSize));
         }
+
+       
 //=============================================== Details ============================================================
         // GET: BlogPosts/Details/5
         //public ActionResult Details(int id)

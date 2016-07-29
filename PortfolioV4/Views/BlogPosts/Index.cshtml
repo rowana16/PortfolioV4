@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = "Index";
-   
+
 }
 
 
@@ -16,7 +16,13 @@
 {
     <img class="img-responsive" src="@Model.MediaURL" alt="BlogPost" />
 }*@
-
+@using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, new { enctype = "Multipart/form-data" }))
+{
+    
+    <input type="text" name="searchStr" class="form-control" />
+    @*<button type="submit" class="btn btn-default buttonColor" style = "color: white">@Html.ActionLink("Search", "Index", null, new { @style = "color: white" })</button>*@
+    <button type="submit" class="btn buttonColor" style="color:white">Search</button>
+}
 <p>
     <button type="button" class="btn btn-warning buttonColor">@Html.ActionLink("Create New", "Create",null,new {@style="color: white"})</button>
     
