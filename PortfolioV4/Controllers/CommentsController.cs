@@ -72,6 +72,7 @@ namespace PortfolioV4.Controllers
 
         //=============================================== Start Edit ============================================================
         // GET: Comments/Edit/5
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -113,6 +114,7 @@ namespace PortfolioV4.Controllers
 
         //=============================================== Start Delete ============================================================
         // GET: Comments/Delete/5
+        [Authorize(Roles = "Admin, Moderator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -128,6 +130,7 @@ namespace PortfolioV4.Controllers
         }
 
         // POST: Comments/Delete/5
+        [Authorize(Roles = "Admin, Moderator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
