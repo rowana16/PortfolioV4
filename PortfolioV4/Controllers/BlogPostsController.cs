@@ -15,6 +15,7 @@ using PagedList.Mvc;
 
 namespace PortfolioV4.Controllers
 {
+    [RequireHttps]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -27,7 +28,7 @@ namespace PortfolioV4.Controllers
             int pageNumber = (page ?? 1);
 
             
-            return View(db.Posts.OrderBy(i=>i.Created).ToPagedList(pageNumber,pageSize));
+            return View(db.Posts.OrderByDescending(i=>i.Created).ToPagedList(pageNumber,pageSize));
         }
 //=============================================== Details ============================================================
         // GET: BlogPosts/Details/5

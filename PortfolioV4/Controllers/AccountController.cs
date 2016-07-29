@@ -13,6 +13,7 @@ using PortfolioV4.Models;
 namespace PortfolioV4.Controllers
 {
     [Authorize]
+    [RequireHttps]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

@@ -11,6 +11,7 @@ using PortfolioV4.Models.codeFirst;
 
 namespace PortfolioV4.Controllers
 {
+    [RequireHttps]
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -18,7 +19,7 @@ namespace PortfolioV4.Controllers
         // GET: Comments
         public ActionResult Index()
         {
-            var comments = db.Comments.Include(c => c.Author).Include(c => c.Post);
+            var comments = db.Comments.OrderByDescending(c => c.Created).Include(c => c.Author).Include(c => c.Post);
             return View(comments.ToList());
         }
 

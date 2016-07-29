@@ -10,6 +10,7 @@ using PortfolioV4.Models;
 
 namespace PortfolioV4.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class ManageController : Controller
     {
