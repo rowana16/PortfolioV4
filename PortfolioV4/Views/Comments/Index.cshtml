@@ -9,12 +9,14 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="jumbotron loginJournal">
-        <h1 class="jumboText">Scribe The Latest Millimoment </h1>
+    <div class="jumbotron loginComment">
+        <h1 class="commentText">Share the Love</h1>
     </div>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+    <button type="button" class="btn buttonColor">
+        @Html.ActionLink("Create New", "Create",null, new { @style = "color: white" })
+    </button>
+    <hr />
+
     <table class="table">
         <tr>
             <th>

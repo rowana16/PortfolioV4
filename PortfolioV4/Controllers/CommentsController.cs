@@ -40,10 +40,9 @@ namespace PortfolioV4.Controllers
 
         //=============================================== Start Create ============================================================
         // GET: Comments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title");
+            ViewBag.PostId = id;
             return View();
         }
 
@@ -61,11 +60,12 @@ namespace PortfolioV4.Controllers
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                string slug = db.Posts.Find(comment.PostId).Slug.ToString();
+                return RedirectToAction(slug, "Blog");
             }
 
-            ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
+            //ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
+            //ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
             return View(comment);
         }
 
@@ -84,7 +84,8 @@ namespace PortfolioV4.Controllers
                 return HttpNotFound();
             }
           
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
+            ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);           
+            ViewBag.Slug = db.Posts.Find(comment.PostId).Slug.ToString();
             return View(comment);
         }
 
@@ -100,7 +101,9 @@ namespace PortfolioV4.Controllers
                 comment.Updated = DateTime.Now;
                 db.Entry(comment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                
+                string slug = db.Posts.Find(comment.PostId).Slug.ToString();
+                return RedirectToAction(slug, "Blog");
             }
             ViewBag.AuthorId = new SelectList(db.ApplicationUsers, "Id", "FirstName", comment.AuthorId);
             ViewBag.PostId = new SelectList(db.Posts, "Id", "Title", comment.PostId);
@@ -132,7 +135,8 @@ namespace PortfolioV4.Controllers
             Comment comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            string slug = db.Posts.Find(comment.PostId).Slug.ToString();
+            return RedirectToAction(slug, "Blog");
         }
 
 

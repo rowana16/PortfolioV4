@@ -46,18 +46,22 @@ namespace PortfolioV4.Controllers
         //    return View(blogPost);
         //}
 
-        public ActionResult Details(string Slug, int? id)
+        public ActionResult Details(string Slug)
         {
             if (String.IsNullOrWhiteSpace(Slug))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == Slug || p.Id == id);
+           
+
+            BlogPost blogPost = db.Posts.FirstOrDefault(p => p.Slug == Slug );
             if (blogPost == null)
             {
                 return HttpNotFound();
             }
+
+
 
             return View(blogPost);
         }
@@ -152,7 +156,7 @@ namespace PortfolioV4.Controllers
             {
                 //check the file name to make sure its an image
                 var ext = Path.GetExtension(image.FileName).ToLower();
-                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".bmp") { ModelState.AddModelError("image", "Invalid Format."); }
+                if (ext != ".png" && ext != ".jpg" && ext != ".gif" && ext != ".bmp" && ext != ".jpeg") { ModelState.AddModelError("image", "Invalid Format."); }
             }
 
             if (ModelState.IsValid)

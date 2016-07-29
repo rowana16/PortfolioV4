@@ -1,8 +1,6 @@
 ﻿@model PortfolioV4.Models.codeFirst.Comment
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -60,7 +58,12 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+       @* @Html.ActionLink("Back to List", "Details","BlogPost",new { model => model.PostId },null)*@
+        @Html.ActionLink("Back to List", (string)ViewBag.Slug, "Blog")
+        
+
+        
+        
     </div>
 </body>
 </html>

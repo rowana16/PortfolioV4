@@ -91,7 +91,7 @@ namespace PortfolioV4.Controllers
                     return View(model);
             }
 
-            return RedirectToAction("Index");
+           
         }
 
         //

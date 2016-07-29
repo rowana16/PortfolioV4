@@ -11,6 +11,11 @@
 
 <div>
     <h4>BlogPost</h4>
+    <p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -71,8 +76,48 @@
         </dd>
 
     </dl>
+
+
+<hr />
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+@*======================================================== Blog Posts =========================================================================*@
+<div>
+    <h4>Comments</h4>
+
+    <button type="button" class="btn btn-default buttonColor" style="margin: 20px 0px">@Html.ActionLink("Create Comment", "Create", "Comments", new { id = Model.Id }, new { @style = "color: white; " })</button>
+    <table class="table">
+        <tr>
+            <th>
+                Last Edit
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Comment Text
+            </th>
+            
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Comments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Updated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>                    
+                    @Html.ActionLink("Edit","Edit","Comments", new { id = item.Id }, null) |
+                    @Html.ActionLink("Details", "Details", "Comments", new { id = item.Id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id },null)
+                </td>
+            </tr>
+           
+        }
+    </table>
+</div>
