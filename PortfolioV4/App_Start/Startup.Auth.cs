@@ -58,11 +58,11 @@ namespace PortfolioV4
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "58845707682-6ker17snusgugllom8mf2romepvs4v6a.apps.googleusercontent.com",
+                ClientSecret = "wWu0O4GU68lhvhUVCxwBCnDO"
+            });
         }
     }
 }

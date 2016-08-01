@@ -29,7 +29,14 @@
     background-image: url('../images/LogIn/Create.jpg');
     height: 550px;
     background-size: cover;
-} 
+}
+
+.loginComment {
+    margin-top: 90px;
+    background-image: url('../images/blog/comment.jpg');
+    height: 550px;
+    background-size: cover;
+}
 
 .jumboText {
     color:#fc7700 !important;
@@ -38,6 +45,10 @@
     background-color:white; 
     opacity:.7; 
     padding: 35px;
+}
+
+.commentText {
+    color:#fc7700 !important;
 }
 
 .buttonColor {

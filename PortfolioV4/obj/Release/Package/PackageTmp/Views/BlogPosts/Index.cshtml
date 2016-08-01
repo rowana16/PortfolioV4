@@ -1,8 +1,10 @@
-﻿@model IEnumerable<PortfolioV4.Models.codeFirst.BlogPost>
+﻿@model IPagedList<PortfolioV4.Models.codeFirst.BlogPost>
+@using PagedList
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
-   
+
 }
 
 
@@ -10,38 +12,58 @@
     <h1 class="jumboText" >Blogs Of History</h1>
 </div>
 
+@*@if (Model.MediaURL != null)
+{
+    <img class="img-responsive" src="@Model.MediaURL" alt="BlogPost" />
+}*@
 
-<p>
-    <button type="button" class="btn btn-warning buttonColor">@Html.ActionLink("Create New", "Create",null,new {@style="color: white"})</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-warning buttonColor">@Html.ActionLink("Create New", "Create", null, new { @style = "color: white" })</button>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            @using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get, new { enctype = "Multipart/form-data" }))
+            {
+                <div class="row">
+                    <div class="col-md-3" style="text-align:right;"><button type="submit" class="btn buttonColor" style="color:white; margin-bottom: 25px;">Search</button></div>
+                    <div class="col-md-9"><input type="text" name="searchStr" class="form-control" /></div>
+                </div> 
+            }
+        </div>
+    </div>   
+</div>
+   
     
-</p>
+
 <table class="table" style="text-align: center;">
     <tr style="text-align: center;">
+        <th></th>
         <th style="text-align: center;">
             Latest Edit
         </th>       
         <th style="text-align: center;">
-            @Html.DisplayNameFor(model => model.Title)
+           Post Title
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>*@        
+             
         <th style="text-align: center;">
-            @Html.DisplayNameFor(model => model.Published)
+            Published?
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
+         @*Create Gravatar
+            <img class="entry-avatar" height ="52" width = "52" src="http://www.gravatar.com/avatar/[biglongstring]" >  *@
         <td>
-            @if (item.Updated == null)
-            {
-                item.Updated = item.Created;
-            }
-                       
-            @Html.Label(@item.Updated.Value.ToString("M - dd - yy"))
-
+            <img class="img-responsive" src="@item.MediaURL" alt="" height="52" width="52" />
+        </td>
+        
+        <td>                                 
+            @Html.Label(@item.Updated.Value.ToString("MMMM, dd yyyy  hh:mm tt"))
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Updated)
@@ -57,11 +79,15 @@
             @Html.DisplayFor(modelItem => item.Published)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("View", "Details", new { id=item.Id }) |
+            
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            <a href="@Url.Action("Details", new { slug = item.Slug })">View</a> |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
 
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) 
+    of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index",new { page }))
