@@ -15,109 +15,55 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
     </p>
-   
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.Slug)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Slug)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
-
-        <dd>
-            @Html.Raw(Model.Body)
-        </dd>
-
-        
-        @*<dt>
-            @Html.DisplayNameFor(model => model.MediaURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MediaURL)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Published)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Published)
-        </dd>
-
-    </dl>
-
-
-<hr />
+    <div class="container">
+        <div class="row">
+            @*======================= Data Titles =================*@
+            <div class="col-md-2" style="text-align:right; font-weight:bold">
+                <div class="row">Created</div>
+                <div class="row">Updated</div>
+                <div class="row">Title</div>
+                <div class="row">Published</div>
+                <div class="row">Blog Text</div>                
+            </div>
+            @*======================= Data ========================*@
+            <div class="col-md-9" style="margin-left:25px;" >                
+                <div class="row">@Html.Label(Model.Created.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="row">@Html.Label(Model.Updated.Value.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="row">@Html.DisplayFor(model => model.Title )</div>
+                <div class="row">@Html.DisplayFor(model => model.Published)</div>
+                <div class="row">@Html.Raw(Model.Body)</div>
+            </div>
+        </div>
+    </div>
 </div>
 @*======================================================== Blog Posts =========================================================================*@
 <div>
-    <h4>Comments</h4>
-
+    <hr /><h4>Comments</h4>
     <button type="button" class="btn btn-default buttonColor" style="margin: 20px 0px">@Html.ActionLink("Create Comment", "Create", "Comments", new { id = Model.Id }, new { @style = "color: white; " })</button>
-    <table class="table">
-        <tr>
-            <th>
-                Last Edit
-            </th>
-            <th>
-                Author
-            </th>
-            <th>
-                Comment Text
-            </th>
-            
-            <th></th>
-        </tr>
+    <hr />
+            @*======================= Data Titles =================*@
+    <div class="container">
+        <div class="row" style="font-weight:bold; text-align: center">
+            <div class="col-md-2">Last Edit</div>
+            <div class="col-md-2">Author</div>
+            <div class="col-md-6">Comment Text (Click to Edit)</div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+            @*======================= Data ========================*@
         @foreach (var item in Model.Comments)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Updated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Author.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Body)
-                </td>
-                <td>                    
-                    @Html.ActionLink("Edit","Edit","Comments", new { id = item.Id }, null) |
-                    @Html.ActionLink("Details", "Details", "Comments", new { id = item.Id }, null) |
-                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id },null)
-                </td>
-            </tr>
-           
+            <div class="row" >
+                <div class="col-md-2">@Html.Label(@item.Updated.Value.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="col-md-2">@Html.DisplayFor(modelItem => item.Author)</div>
+                <div class="col-md-6">@Html.DisplayFor(modelItem => item.Body)</div>
+                <div class="col-md-2">                    
+                    <div class="row">@Html.ActionLink("Details", "Details", "Comments", new { id = item.Id }, null)</div>
+                    <div class="row">@Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id }, null)</div>                    
+                </div>
+            </div>
         }
-    </table>
+
+    </div>
 </div>

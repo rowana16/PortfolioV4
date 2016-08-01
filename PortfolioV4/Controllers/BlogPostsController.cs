@@ -36,6 +36,19 @@ namespace PortfolioV4.Controllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
 
+            if (searchStr != null)
+            {
+                if(result == null)
+                {
+                    ViewBag.Alert = "No Results Found";
+                    return View();
+                }
+
+                else
+                {
+                    return View(result.OrderByDescending(i => i.Created).ToPagedList(pageNumber, pageSize));
+                }
+            }
             
             return View(db.Posts.OrderByDescending(i=>i.Created).ToPagedList(pageNumber,pageSize));
         }
