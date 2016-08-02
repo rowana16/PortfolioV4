@@ -86,3 +86,4 @@ C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\PagedLis
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\PagedList.Mvc.dll
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\PagedList.xml
 C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\PagedList.Mvc.xml
+C:\Users\aaron\Documents\Visual Studio 2015\PortfolioV4\PortfolioV4\bin\Owin.Security.Providers.LinkedIn.dll

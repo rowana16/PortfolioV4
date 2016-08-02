@@ -4,8 +4,10 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+
 using Owin;
 using PortfolioV4.Models;
+using Owin.Security.Providers.LinkedIn;
 
 namespace PortfolioV4
 {
@@ -54,9 +56,17 @@ namespace PortfolioV4
             //   consumerKey: "",
             //   consumerSecret: "");
 
+            //Production
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "218700695194577",
+            //   appSecret: "b0d7bf3b81c1c0e4753496d22e553371");
+            
+            //Test
+            app.UseFacebookAuthentication(
+               appId: "218737875190859",
+               appSecret: "a482130b3e284b0218382e3faa5c41f2");
+
+            app.UseLinkedInAuthentication("78nds9mrjhko45", "aciUvZlUa7aW5qIK");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
