@@ -41,6 +41,7 @@ namespace PortfolioV4.Controllers
 
         //=============================================== Start Create ============================================================
         // GET: Comments/Create
+        [Authorize]
         public ActionResult Create(int? id)
         {
             ViewBag.PostId = id;
@@ -52,7 +53,7 @@ namespace PortfolioV4.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        
         public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated,UpdateReason")] Comment comment)
         {
             comment.Created = DateTime.Now;

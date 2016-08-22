@@ -60,6 +60,7 @@
                         <li class="@(Html.ReturnPath().ToString() == "Portfolio" ? "scroll active" : "scroll")"><a href="@Url.Action("Portfolio","home")">Portfolio</a></li>
                         <li class="@(Html.ReturnTotalPath().ToString() == "~/Views/BlogPosts/Index.cshtml" ? "scroll active" : "scroll")"><a href="@Url.Action("index","BlogPosts")">Blog</a></li>
                         <li class="@(Html.ReturnPath().ToString() == "Contact" ? "scroll active" : "scroll")"><a href="@Url.Action("Contact","home")">Contact</a></li>
+                        
                         @using Microsoft.AspNet.Identity
                         @if (Request.IsAuthenticated)
                         {
@@ -79,7 +80,7 @@
                         {
 
                             <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { ViewBag.ReturnController, ViewBag.ReturnAction }, htmlAttributes: new { id = "loginLink" })</li>
 
                         }
                     </ul>
