@@ -275,6 +275,7 @@
     <Content Include="images\logo.png" />
     <Content Include="images\Novelis.png" />
     <Content Include="images\pattern.png" />
+    <Content Include="images\portfolio\BugTrackerPM.jpg" />
     <Content Include="images\portfolio\hotOrColdScreenShot.JPG" />
     <Content Include="images\portfolio\javaScriptExercisesWk1.JPG" />
     <Content Include="images\portfolio\MicrodataScreenShot.jpg" />

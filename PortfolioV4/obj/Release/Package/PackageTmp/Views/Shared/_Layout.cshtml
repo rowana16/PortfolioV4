@@ -59,7 +59,7 @@
                         <li class="@(Html.ReturnPath().ToString() == "Skills" ? "scroll active" : "scroll")"><a href="@Url.Action("Skills","home")">Skills</a></li>
                         <li class="@(Html.ReturnPath().ToString() == "Portfolio" ? "scroll active" : "scroll")"><a href="@Url.Action("Portfolio","home")">Portfolio</a></li>
                         <li class="@(Html.ReturnTotalPath().ToString() == "~/Views/BlogPosts/Index.cshtml" ? "scroll active" : "scroll")"><a href="@Url.Action("index","BlogPosts")">Blog</a></li>
-                        <li class="@(Html.ReturnPath().ToString() == "Contact" ? "scroll active" : "scroll")"><a href="@Url.Action("Contact","home")">Contact</a></li>
+                        <li class="@(Html.ReturnPath().ToString() == "Contact" ? "scroll active" : "scroll")"><a href="@Url.Action("Contact","home")">Resume</a></li>
                         
                         @using Microsoft.AspNet.Identity
                         @if (Request.IsAuthenticated)
@@ -118,6 +118,7 @@
     <script type="text/javascript" src="~/js/smoothscroll.js"></script>    
     <script type="text/javascript" src="~/js/main.js"></script>
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    
     <script>tinymce.init({ selector:'.textarea' });</script>
     @*<script type="text/javascript" src="~/js/navBar.js"></script>*@
 </body>
