@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Resume";
+    }
+<style>
+    .pdfobject-container {
+        height: 750px;
+    }
+
+    .pdfobject {
+        border: 1px solid #666;
+    }
+</style>
+<section id="contact">
+    <div class="container">
+        <div class="row text-center clearfix">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="contact-heading">
+                    <h2 class="title-one">Connection Info</h2>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Novelis-Cans-for-the-Community-158963970794045/"><i class="fa fa-facebook"></i></a>
+                        @*<a href="#"><i class="fa fa-twitter"></i></a>*@
+                        @*<a href="#"><i class="fa fa-google-plus"></i></a>*@
+                        @*<a href="#"><i class="fa fa-dribbble"></i></a>*@
+                        <a href="https://www.linkedin.com/in/aaron-rowan-35a57320?trk=nav_responsive_tab_profile_pic"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="resumePdf" style="heigth: 750px"></div>
+    </div>
+</section> <!--/#contact--> 
+<script src="~/js/pdfobject.min.js"></script>
+<script>PDFObject.embed("../images/Aaron_Rowan_FullStack_CSharp.pdf", "#resumePdf");</script>
+<a href="~/images/Aaron_Rowan_FullStack_CSharp.pdf">~/images/Aaron_Rowan_FullStack_CSharp.pdf</a>

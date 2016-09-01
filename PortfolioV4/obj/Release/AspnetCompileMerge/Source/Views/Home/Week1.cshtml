@@ -1,0 +1,340 @@
+﻿
+@{
+    ViewBag.Title = "JavaScript Skills";  
+}
+<head>
+    <link href="/css/prism.css" rel="stylesheet" type="text/css" />
+</head>
+
+<style>
+    body {
+        background-image: url("/images/stones.jpg");
+    }
+</style>
+
+<div class="jumbotron" style="margin-top: 50px;">
+    <h1>Data Characterization</h1>
+    <p class="lead">Enter up to 10 numbers and Click Calculate.</p>
+    <p id="calculate"><span class="btn btn-primary btn-lg">Calculate &raquo;</span></p>
+    <button type="button" class="btn btn-info btn-lg" id="myBtn">Javascript Code</button>
+</div>
+<!-- Create Values for Data Characterization-->
+<div class="row" style="background-color: white; opacity:.8">
+
+    <div class="col-sm-12">
+        <h2>Enter Numbers between 1 and 100</h2>
+    </div>
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <label class="col-sm-4" for="input1">Value #1</label>
+                <input class="col-sm-8 form-control" type="number" id="input1" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input2">Value #2</label>
+                <input class="col-sm-8 form-control" type="number" id="input2" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input3">Value #3</label>
+                <input class="col-sm-8 form-control" type="number" id="input3" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input4">Value #4</label>
+                <input class="col-sm-8 form-control" type="number" id="input4" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input5">Value #5</label>
+                <input class="col-sm-8 form-control" type="number" id="input5" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <label class="col-sm-4" for="input6">Value #6:</label>
+                <input class="col-sm-8 form-control" type="number" id="input6" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input7">Value #7:</label>
+                <input class="col-sm-8 form-control" type="number" id="input7" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input8">Value #8:</label>
+                <input class="col-sm-8 form-control" type="number" id="input8" />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4" for="input9">Value #9:</label>
+                <input class="col-sm-8 form-control" type="number" id="input9" />
+            </div>
+            <div>
+                <label class="col-sm-4" for="input10">Value #10</label>
+                <input class="col-sm-8 form-control" type="number" id="input10" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="well">
+            <h2>Results</h2>
+            <h3><span class="label label-info">Max:     <span id="max" class="badge"></span></span></h3>
+            <h3><span class="label label-info">Min:   <span id="min" class="badge"></span></span></h3>
+            <h3><span class="label label-info">Mean:   <span id="ave" class="badge"></span></span></h3>
+            <h3><span class="label label-info">Sum:   <span id="sum" class="badge"></span></span></h3>
+            <h3><span class="label label-info">Product:   <span id="product" class="badge"></span></span></h3>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal Header Data Characterization-->
+            <div class="modal-content">
+                <!-- Modal Body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                    <h2 style="background-color: white">  Java Script Code: </h2>
+                    <pre class="line-numbers"> <code class="language-javascript">
+$("#calculate").on("click", ".btn", function () {
+// initialize variables
+var max = 0;
+var min = 100;
+var count = 0;
+var sum = 0;
+var product = 1;
+//loop through each input
+for (var i = 1; i &lt;11; i++){
+    // get values
+    var currValue = $("#input" + i).val()
+    // ensure inputs are valid
+    if (!isNaN(parseInt(currValue)) && parseInt(currValue)&lt;=100 && parseInt(currValue) > 0) {
+        value = parseInt(currValue);
+/*
+Debugging Tool: alert(i + ": value - " + value + "  Max: " + max + "  Min: " + min + "  Sum: " + sum + "  count: " + count + "  product: " + product); 
+*/
+        // Additional Error Handling 
+        if (value != "") {
+            max = maxCompare(max, value);
+            min = minCompare(min, value);
+            count++;
+            sum = sum + value;
+            product = product * value;
+        }
+    }
+}
+$("#max").text(max);
+$("#min").text(min);
+$("#ave").text(sum / count);
+$('#sum').text(sum);
+$('#product').text(product);
+})
+//simple max and min functions
+function maxCompare(currentMax, newValue) {
+    if (currentMax >= newValue) { return currentMax; }
+    else if (currentMax &lt; newValue) { return newValue; }     
+}
+function minCompare(currentMin, newValue) {
+    if (currentMin &lt; newValue) { return currentMin; }
+    else if (currentMin > newValue) { return newValue; }     
+}
+                    </code></pre>
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!--Modal Outline-->
+</div><!-- Container-->
+
+<hr style="background-color: white; opacity:0;" />
+<div class="jumbotron" style="background-color: white; opacity:.8">
+    <h1>More JavaScript Samples</h1>
+    <h2>Factorial</h2>
+    <p class="lead">The Fantastic Factorial Calculator.</p>
+    <button type="button" class="btn btn-primary btn-lg" id="factorial">Calculate</button>
+    <hr />
+    <h2>FizzBuzz</h2>
+    <p>Fizz and Buzz your way to 100</p>
+    <button type="button" class="btn btn-primary btn-lg" id="fizzBuzz">Demonstrate</button>
+    <hr />
+    <h2>Palindrome</h2>
+    <p>A man, a plan, a canal, Panama</p>
+    <button type="button" class="btn btn-primary btn-lg" id="palindrome">Investigate</button>
+</div>
+
+
+<!--Factorial-->
+<div class="container">
+    <div class="modal fade" id="factorialModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal Header-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-cog"></span> Calculate the Factorial of a Number</h4>
+                </div>
+                <!-- Modal Body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="factorial"><span class="glyphicon glyphicon-exclamation-sign"></span>  Enter Value</label>
+                            <input type="number" class="form-control" id="factorial" placeholder="Your Value">
+                        </div>
+                        <button class="btn btn-success btn-block" id="calculate"><span class="glyphicon glyphicon-cog"></span> Calculate</button>
+                        <div class="form-group">
+                            <h4 style="font-size:5rem"><label class="label label-primary" id="result"><span class="glyphicon glyphicon-stats"></span>  Result:  </label></h4>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h2 style="background-color: white">Java Script Code: </h2>
+                    <pre> <code class="language-javascript">
+$('#calculate').click(function (e) {
+    e.preventDefault();
+    var value = $('#factorial').val();
+    if (value > 0) {
+        var output = 1;
+        for (var i = 1; i <= value; i++) {
+            output *= i;
+        }
+    $('#result').text("Result: " + output);
+    $('#factorial').val("");
+    }
+});                 </code></pre>
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!--Modal Outline-->
+</div><!-- Container-->
+<!--FizzBuzz-->
+<div class="container">
+    <div class="modal fade" id="fizzModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal Header-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-cog"></span> Enter 2 Numbers to FizzBuzz to 100</h4>
+                </div>
+
+                <!-- Modal Body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="factorial"><span class="glyphicon glyphicon-exclamation-sign"></span>  Enter Value #1</label>
+                            <input type="number" class="form-control" id="fizz" placeholder="Your First Value">
+                        </div>
+                        <div class="form-group">
+                            <label for="factorial"><span class="glyphicon glyphicon-exclamation-sign"></span>  Enter Value #2</label>
+                            <input type="number" class="form-control" id="buzz" placeholder="Your Second Value">
+                        </div>
+                        <button class="btn btn-success btn-block" id="calcFizzBuzz"><span class="glyphicon glyphicon-cog"></span> Calculate</button>
+                        <div class="form-group">
+                            <h4 style="font-size:5rem"><label class="label label-primary" id="fizz"><span class="glyphicon glyphicon-stats"></span>  Result:  </label></h4>
+                            <h5 id="fizzValue" style="text-align:center"></h5>
+                            <h5 id="buzzValue" style="text-align:center"></h5>
+                            <p id="fizzResult" style="text-align:center"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h2 style="background-color: white">Java Script Code: </h2>
+                    <pre> <code class="language-javascript">
+$('#calcFizzBuzz').click(function (e) {
+    e.preventDefault();
+    var calc1 = $('#fizz').val();
+    var calc2 = $('#buzz').val();
+    $('#fizzResult').text(' ');
+    fizzBuzz(calc1, calc2);
+    $('#fizz').val(' ');
+    $('#buzz').val(' ');
+});
+function checkInt(input) {
+    //console.log("Check Int");
+    input = Math.ceil(input);
+    //console.log(input);
+    input = parseInt(input);
+    //console.log(input);
+    if (isNaN(input)) {        
+        alert("Not a Valid Integer");
+    }
+    else { return input; }
+}
+function fizzBuzz(input1, input2) {
+    var denom1 = checkInt(input1);
+    var denom2 = checkInt(input2);
+    $('#fizzValue').text('Fizz:  ' + denom1);
+    $('#buzzValue').text('Buzz:  ' + denom2);
+    for (var count = 1; count <= 100; count++) {
+        var output;
+        if (count % denom1 === 0 && count % denom2 === 0) { output = "FizzBuzz"; }
+        else if (count % denom1 === 0) { output = "Fizz"; }
+        else if (count % denom2 === 0) { output = "Buzz"; }
+        else { output = count; }
+        $('#fizzResult').append('<br />' + output);
+    }
+}                      </code></pre>
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div> <!--Modal Outline-->
+</div><!-- Container-->
+<!--Palindrome-->
+<div class="container">
+    <div class="modal fade" id="palinModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal Header-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:35px 50px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-cog"></span> Determine if your word, phrase or sentence is a palindrome.</h4>
+                </div>
+                <!-- Modal Body-->
+                <div class="modal-body" style="padding:40px 50px;">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="palinIn"><span class="glyphicon glyphicon-exclamation-sign"></span>  Enter Your Palindrome Here</label>
+                            <input type="text" class="form-control" id="palinIn" placeholder="Enter Text">
+                        </div>
+                        <button class="btn btn-success btn-block" id="calcPalindrome"><span class="glyphicon glyphicon-cog"></span> Evaluate</button>
+                        <div class="form-group">
+                            <h4 style="font-size:5rem"><label class="label label-primary" id="palinResult"><span class="glyphicon glyphicon-stats"></span>  Result:  </label></h4>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h2 style="background-color: white">Java Script Code: </h2>
+                    <pre> <code class="language-javascript">
+$('#calcPalindrome').click(function (e) {
+    e.preventDefault();
+    $('#palinResult').text('Result: ');
+    var evalString = $('#palinIn').val();
+    evalString = evalString.toUpperCase();
+    for (var i = 1; i <= evalString.length; i++) {
+        if (evalString.substring(i - 1, i) != evalString.substring(evalString.length - i, evalString.length - i + 1)) {
+            $('#palinResult')
+                .append("Not a Palindrome")
+                .attr('class', 'label label-warning');
+            break;
+        }
+        if (i === evalString.length) {
+            $('#palinResult')
+                .append("It's a Palindrome!!!")
+                .attr('class', 'label label-success');
+        }
+    }
+    $('#palinIn').val('');
+});
+                         </code></pre>
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div> <!--Modal Outline-->
+</div><!-- Container-->
+<script src="~/js/index.js"></script>
+<script type="text/javascript" src="/js/prism.js"></script>

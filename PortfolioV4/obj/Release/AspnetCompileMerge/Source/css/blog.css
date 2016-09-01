@@ -1,0 +1,61 @@
+﻿body {
+}
+
+
+.col-sm-3, .col-sm-6{
+    padding:0;
+
+}
+
+.col-sm-3{ margin-top:25px}
+
+
+.loginSnail {
+    margin-top: 90px; 
+    background-image: url('../../images/blog/snailShell.jpg');  
+    height: 550px; 
+    background-size: cover;
+}
+
+.loginComputer {
+    margin-top: 90px;   
+    background-image: url('../images/LogIn/LogIn.jpg');
+    height: 550px;
+    background-size: cover;
+}
+
+.loginJournal {
+    margin-top: 90px;
+    background-image: url('../images/LogIn/Create.jpg');
+    height: 550px;
+    background-size: cover;
+}
+
+.loginComment {
+    margin-top: 90px;
+    background-image: url('../images/blog/comment.jpg');
+    height: 550px;
+    background-size: cover;
+}
+
+.jumboText {
+    color:#fc7700 !important;
+    text-align:center;
+    margin-top:170px; 
+    background-color:white; 
+    opacity:.7; 
+    padding: 35px;
+}
+
+.commentText {
+    color:#fc7700 !important;
+}
+
+.buttonColor {
+    background-color:#fc7700;
+    color:white;
+}
+
+.single-service{
+    height:630px;
+}

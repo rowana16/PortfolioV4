@@ -1,0 +1,19 @@
+﻿body {
+}
+
+.myImages {
+    width:285px;
+    height:130px;
+    padding:0;
+    margin:25px 15px 25px 15px;
+    box-shadow:3px;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+    
+}
+
+.myImages:hover{
+   width:760px;
+   height:350px;
+    
+}

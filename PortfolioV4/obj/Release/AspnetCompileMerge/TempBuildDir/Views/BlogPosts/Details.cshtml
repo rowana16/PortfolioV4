@@ -1,0 +1,69 @@
+﻿@model PortfolioV4.Models.codeFirst.BlogPost
+
+@{
+    ViewBag.Title = "View Post";
+    
+}
+
+<div class="jumbotron loginSnail">
+    <h1 class="jumboText">View and Comment</h1>
+</div>
+
+<div>
+    <h4>BlogPost</h4>
+    <p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+    <hr />
+    <div class="container">
+        <div class="row">
+            @*======================= Data Titles =================*@
+            <div class="col-md-2" style="text-align:right; font-weight:bold">
+                <div class="row">Created</div>
+                <div class="row">Updated</div>
+                <div class="row">Title</div>
+                <div class="row">Published</div>
+                <div class="row">Blog Text</div>                
+            </div>
+            @*======================= Data ========================*@
+            <div class="col-md-9" style="margin-left:25px;" >                
+                <div class="row">@Html.Label(Model.Created.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="row">@Html.Label(Model.Updated.Value.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="row">@Html.DisplayFor(model => model.Title )</div>
+                <div class="row">@Html.DisplayFor(model => model.Published)</div>
+                <div class="row">@Html.Raw(Model.Body)</div>
+            </div>
+        </div>
+    </div>
+</div>
+@*======================================================== Blog Posts =========================================================================*@
+<div>
+    <hr /><h4>Comments</h4>
+    <button type="button" class="btn btn-default buttonColor" style="margin: 20px 0px">@Html.ActionLink("Create Comment", "Create", "Comments", new { id = Model.Id }, new { @style = "color: white; " })</button>
+    <hr />
+            @*======================= Data Titles =================*@
+    <div class="container">
+        <div class="row" style="font-weight:bold; text-align: center">
+            <div class="col-md-2">Last Edit</div>
+            <div class="col-md-2">Author</div>
+            <div class="col-md-6">Comment Text</div>
+            <div class="col-md-2"></div>
+        </div>
+        <hr />
+            @*======================= Data ========================*@
+        @foreach (var item in Model.Comments)
+        {
+            <div class="row" >
+                <div class="col-md-2">@Html.Label(@item.Updated.Value.ToString("MMMM, dd yyyy  hh:mm tt"))</div>
+                <div class="col-md-2">@Html.DisplayFor(modelItem => item.Author)</div>
+                <div class="col-md-6">@Html.DisplayFor(modelItem => item.Body)</div>
+                <div class="col-md-2">                    
+                    <div class="row">@Html.ActionLink("Details", "Details", "Comments", new { id = item.Id }, null)</div>
+                    <div class="row">@Html.ActionLink("Delete", "Delete", "Comments", new { id = item.Id }, null)</div>                    
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
