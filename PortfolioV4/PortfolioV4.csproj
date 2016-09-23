@@ -367,7 +367,13 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Bench.jpg" />
     <Content Include="Uploads\Bulbs.jpg" />
+    <Content Include="Uploads\cobWood.jpeg" />
+    <Content Include="Uploads\fallingWater.jpeg" />
+    <Content Include="Uploads\Headline Image.png" />
+    <Content Include="Uploads\pineapple.jpg" />
+    <Content Include="Uploads\snailShell.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
