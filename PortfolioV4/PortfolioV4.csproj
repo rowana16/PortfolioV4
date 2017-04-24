@@ -264,6 +264,7 @@
     <Content Include="images\blog\snailShell.jpg" />
     <Content Include="images\blog\snailSlimline.jpg" />
     <Content Include="images\blog\treeRings.jpg" />
+    <Content Include="images\portfolio\Budgeter.JPG" />
     <Content Include="images\home-pattern.png" />
     <Content Include="images\ico\apple-touch-icon-114-precomposed.png" />
     <Content Include="images\ico\apple-touch-icon-144-precomposed.png" />
@@ -276,6 +277,7 @@
     <Content Include="images\Novelis.png" />
     <Content Include="images\pattern.png" />
     <Content Include="images\portfolio\BugTrackerPM.jpg" />
+    <Content Include="images\portfolio\CarFinder.JPG" />
     <Content Include="images\portfolio\hotOrColdScreenShot.JPG" />
     <Content Include="images\portfolio\javaScriptExercisesWk1.JPG" />
     <Content Include="images\portfolio\MicrodataScreenShot.jpg" />
@@ -354,6 +356,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="images\Aaron_Rowan_FullStack_CSharp.pdf" />
+    <Content Include="images\Aaron_Rowan_CSharp.pdf" />
     <None Include="Properties\PublishProfiles\arowan-portfolio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -372,6 +375,8 @@
     <Content Include="Uploads\cobWood.jpeg" />
     <Content Include="Uploads\fallingWater.jpeg" />
     <Content Include="Uploads\Headline Image.png" />
+    <Content Include="Uploads\Landing1.jpg" />
+    <Content Include="Uploads\Landing3.jpg" />
     <Content Include="Uploads\pineapple.jpg" />
     <Content Include="Uploads\snailShell.jpg" />
     <Content Include="Web.config" />
